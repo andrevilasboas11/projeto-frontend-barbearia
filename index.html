@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barber Shop | Barbearia com hora marcada</title>
+</head>
+
+<body>
+
+  <header>
+    <p>Ligue para nós: <a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
+
+    <nav aria-label="Menu principal">
+      <a href="#home">Barber Shop</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#agendamento">Agenda horário</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="home">
+      <h1>Conheça a barbearia que cuida do seu estilo</h1>
+      <p>Agende seu horário, você vai se surpreender.</p>
+      <a href="#agendamento">Agenda horário</a>
+    </section>
+
+    <section id="sobre">
+      <h2>Tradição no corte, cuidado em cada detalhe</h2>
+      <p>
+        Somos uma barbearia que une o corte clássico às técnicas atuais. Aqui você é atendido
+        com hora marcada, sem correria e por profissionais que gostam do que fazem.
+      </p>
+      <p>
+        Da tesoura à navalha, cada serviço é feito com calma, higiene e produtos de qualidade,
+        para você sair daqui com o visual em dia e a confiança lá em cima.
+      </p>
+
+      <ul>
+        <li>Hora marcada, sem fila</li>
+        <li>Higiene rigorosa: materiais esterilizados</li>
+        <li>Produtos premium</li>
+        <li>Ambiente acolhedor</li>
+      </ul>
+    </section>
+
+    <section id="servicos">
+      <h2>Nossos serviços</h2>
+      <p>Escolha o serviço e agende o melhor horário para você.</p>
+
+      <article>
+        <h3>Corte de cabelo</h3>
+        <p>Clássico, degradê ou social. Você escolhe, a gente executa.</p>
+        <p>R$ 40</p>
+        <a href="#agendamento">Agendar</a>
+      </article>
+
+      <article>
+        <h3>Barba</h3>
+        <p>Modelagem, aparo e hidratação para uma barba alinhada.</p>
+        <p>R$ 30</p>
+        <a href="#agendamento">Agendar</a>
+      </article>
+
+      <article>
+        <h3>Navalhado</h3>
+        <p>Acabamento na navalha com toalha quente, no capricho.</p>
+        <p>R$ 35</p>
+        <a href="#agendamento">Agendar</a>
+      </article>
+
+      <article>
+        <h3>Corte + barba</h3>
+        <p>O pacote completo com desconto para sair 100% renovado.</p>
+        <p>R$ 60</p>
+        <a href="#agendamento">Agendar</a>
+      </article>
+    </section>
+
+    <section id="depoimentos">
+      <h2>O que dizem nossos clientes</h2>
+
+      <article>
+        <blockquote>
+          <p>Atendimento pontual e um corte impecável. Marquei pelo site em dois minutos e não esperei nada.</p>
+        </blockquote>
+        <p>Rafael Souza, cliente desde 2022</p>
+      </article>
+
+      <article>
+        <blockquote>
+          <p>A melhor barba que já fiz. A toalha quente e o acabamento na navalha fazem toda a diferença.</p>
+        </blockquote>
+        <p>Marcos Andrade, cliente desde 2021</p>
+      </article>
+
+      <article>
+        <blockquote>
+          <p>Levo meu filho e eu mesmo cortamos aqui. Ambiente tranquilo e o pessoal trata todo mundo muito bem.</p>
+        </blockquote>
+        <p>Carlos Menezes, cliente desde 2023</p>
+      </article>
+    </section>
+
+    <section id="agendamento">
+      <h2>Agende seu horário</h2>
+      <p>Preencha os dados abaixo e entraremos em contato para confirmar.</p>
+
+      <form action="#" method="post">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+
+        <label for="telefone">Telefone (WhatsApp)</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" required>
+
+        <label for="servico">Serviço</label>
+        <select id="servico" name="servico" required>
+          <option value="" selected disabled>Selecione um serviço</option>
+          <option value="corte">Corte de cabelo</option>
+          <option value="barba">Barba</option>
+          <option value="navalhado">Navalhado</option>
+          <option value="combo">Corte + barba</option>
+        </select>
+
+        <label for="data">Data</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="hora">Horário</label>
+        <input type="time" id="hora" name="hora" min="09:00" max="20:00" required>
+
+        <label for="observacoes">Observações (opcional)</label>
+        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Ex.: prefiro o barbeiro João, corte degradê..."></textarea>
+
+        <button type="submit">Solicitar agendamento</button>
+      </form>
+
+      <aside>
+        <h3>Horário de funcionamento</h3>
+        <ul>
+          <li>Segunda a sexta: 09h às 20h</li>
+          <li>Sábado: 08h às 18h</li>
+          <li>Domingo e feriados: fechado</li>
+        </ul>
+        <p>Prefere falar direto com a gente? Chame no <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </aside>
+    </section>
+
+    <!-- ---------- CONTATO ---------- -->
+    <section id="contato">
+      <h2>Venha nos visitar</h2>
+
+      <article>
+        <h3>Endereço</h3>
+        <p>Rua Exemplo, 123 - Centro<br>Cidade - UF</p>
+      </article>
+
+      <article>
+        <h3>Telefone</h3>
+        <p><a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
+      </article>
+
+      <article>
+        <h3>E-mail</h3>
+        <p><a href="mailto:contato@barbershop.com.br">contato@barbershop.com.br</a></p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Barber Shop. Todos os direitos reservados.</p>
+    <p>Projeto acadêmico de Programação Front-End | UNIFAN</p>
+  </footer>
+
+</body>
+
+</html>
