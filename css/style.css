@@ -1,0 +1,293 @@
+:root {
+  --cor-escura: #141a26;
+  --cor-destaque: #e07a3f;
+  --cor-texto: #26303d;
+  --cor-texto-suave: #5c6773;
+  --cor-fundo-alt: #f2f4f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--cor-texto);
+}
+
+h1, h2, h3 {
+  color: var(--cor-escura);
+}
+
+a {
+  color: var(--cor-destaque);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cor-escura);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  padding: 3rem 1.5rem;
+}
+
+section > h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header > p {
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  background-color: var(--cor-escura);
+  font-size: 0.85rem;
+}
+
+header > p a {
+  color: #fff;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+header nav ul a {
+  color: var(--cor-texto);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+#home {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: #fff;
+  background-color: var(--cor-escura);
+}
+
+#home h1 {
+  color: #fff;
+}
+
+#home > a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  color: #fff;
+  background-color: var(--cor-destaque);
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#sobre {
+  background-color: var(--cor-fundo-alt);
+}
+
+#sobre ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+#sobre ul li {
+  padding: 1rem;
+  background-color: #fff;
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: 6px;
+}
+
+#servicos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+#servicos h2 {
+  grid-column: 1 / -1;
+}
+
+#servicos article {
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#servicos article a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  background-color: var(--cor-destaque);
+  border-radius: 50px;
+  font-size: 0.85rem;
+}
+
+#depoimentos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #fff;
+  background-color: var(--cor-escura);
+}
+
+#depoimentos h2 {
+  flex-basis: 100%;
+  color: #fff;
+}
+
+#depoimentos article {
+  flex: 1 1 16rem;
+  max-width: 20rem;
+}
+
+#depoimentos p {
+  color: #dbe0e8;
+}
+
+#agendamento {
+  background-color: var(--cor-fundo-alt);
+}
+
+#agendamento form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+#agendamento label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+#agendamento input,
+#agendamento select,
+#agendamento textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#agendamento label[for="servico"],
+#agendamento select,
+#agendamento label[for="observacoes"],
+#agendamento textarea,
+#agendamento button {
+  grid-column: 1 / -1;
+}
+
+#agendamento button {
+  padding: 0.75rem 2rem;
+  color: #fff;
+  background-color: var(--cor-destaque);
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  justify-self: start;
+}
+
+#agendamento aside {
+  max-width: 40rem;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  color: #fff;
+  background-color: var(--cor-escura);
+  border-radius: 8px;
+}
+
+#agendamento aside li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#contato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+#contato article {
+  flex: 1 1 14rem;
+  max-width: 18rem;
+  padding: 1.5rem;
+  background-color: var(--cor-fundo-alt);
+  border-radius: 8px;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1.5rem;
+  color: #fff;
+  background-color: var(--cor-escura);
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  #servicos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #sobre ul {
+    grid-template-columns: 1fr;
+  }
+
+  #servicos {
+    grid-template-columns: 1fr;
+  }
+
+  #agendamento form {
+    grid-template-columns: 1fr;
+  }
+
+  #agendamento label,
+  #agendamento input,
+  #agendamento select,
+  #agendamento button {
+    grid-column: 1 / -1;
+  }
+}
