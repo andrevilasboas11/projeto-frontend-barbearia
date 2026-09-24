@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Barber Shop | Barbearia com hora marcada</title>
-  <link rel="stylesheet" href="css/style.css">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -14,15 +16,25 @@
   <header>
     <p>Ligue para nós: <a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
 
-    <nav aria-label="Menu principal">
-      <a href="#home">Barber Shop</a>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#agendamento">Agenda horário</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="Menu principal">
+      <div class="container">
+        <a class="navbar-brand" href="#home">Barber Shop</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="#agendamento">Agenda horário</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -31,7 +43,7 @@
     <section id="home">
       <h1>Conheça a barbearia que cuida do seu estilo</h1>
       <p>Agende seu horário, você vai se surpreender.</p>
-      <a href="#agendamento">Agenda horário</a>
+      <a href="#agendamento" class="btn btn-barbearia">Agenda horário</a>
     </section>
 
     <section id="sobre">
@@ -57,90 +69,155 @@
       <h2>Nossos serviços</h2>
       <p>Escolha o serviço e agende o melhor horário para você.</p>
 
-      <article>
-        <h3>Corte de cabelo</h3>
-        <p>Clássico, degradê ou social. Você escolhe, a gente executa.</p>
-        <p>R$ 40</p>
-        <a href="#agendamento">Agendar</a>
-      </article>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
 
-      <article>
-        <h3>Barba</h3>
-        <p>Modelagem, aparo e hidratação para uma barba alinhada.</p>
-        <p>R$ 30</p>
-        <a href="#agendamento">Agendar</a>
-      </article>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h3 class="card-title h5">Corte de cabelo</h3>
+              <p class="card-text">Clássico, degradê ou social. Você escolhe, a gente executa.</p>
+              <p class="fw-bold">R$ 40</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
 
-      <article>
-        <h3>Navalhado</h3>
-        <p>Acabamento na navalha com toalha quente, no capricho.</p>
-        <p>R$ 35</p>
-        <a href="#agendamento">Agendar</a>
-      </article>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h3 class="card-title h5">Barba</h3>
+              <p class="card-text">Modelagem, aparo e hidratação para uma barba alinhada.</p>
+              <p class="fw-bold">R$ 30</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
 
-      <article>
-        <h3>Corte + barba</h3>
-        <p>O pacote completo com desconto para sair 100% renovado.</p>
-        <p>R$ 60</p>
-        <a href="#agendamento">Agendar</a>
-      </article>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h3 class="card-title h5">Navalhado</h3>
+              <p class="card-text">Acabamento na navalha com toalha quente, no capricho.</p>
+              <p class="fw-bold">R$ 35</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h3 class="card-title h5">Corte + barba</h3>
+              <p class="card-text">O pacote completo com desconto para sair 100% renovado.</p>
+              <p class="fw-bold">R$ 60</p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <section id="depoimentos">
       <h2>O que dizem nossos clientes</h2>
 
-      <article>
-        <blockquote>
-          <p>Atendimento pontual e um corte impecável. Marquei pelo site em dois minutos e não esperei nada.</p>
-        </blockquote>
-        <p>Rafael Souza, cliente desde 2022</p>
-      </article>
+      <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
 
-      <article>
-        <blockquote>
-          <p>A melhor barba que já fiz. A toalha quente e o acabamento na navalha fazem toda a diferença.</p>
-        </blockquote>
-        <p>Marcos Andrade, cliente desde 2021</p>
-      </article>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Depoimento 1"></button>
+          <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="1" aria-label="Depoimento 2"></button>
+          <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="2" aria-label="Depoimento 3"></button>
+        </div>
 
-      <article>
-        <blockquote>
-          <p>Levo meu filho e eu mesmo cortamos aqui. Ambiente tranquilo e o pessoal trata todo mundo muito bem.</p>
-        </blockquote>
-        <p>Carlos Menezes, cliente desde 2023</p>
-      </article>
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <blockquote>
+              <p>Atendimento pontual e um corte impecável. Marquei pelo site em dois minutos e não esperei nada.</p>
+            </blockquote>
+            <p>Rafael Souza, cliente desde 2022</p>
+          </div>
+
+          <div class="carousel-item">
+            <blockquote>
+              <p>A melhor barba que já fiz. A toalha quente e o acabamento na navalha fazem toda a diferença.</p>
+            </blockquote>
+            <p>Marcos Andrade, cliente desde 2021</p>
+          </div>
+
+          <div class="carousel-item">
+            <blockquote>
+              <p>Levo meu filho e eu mesmo cortamos aqui. Ambiente tranquilo e o pessoal trata todo mundo muito bem.</p>
+            </blockquote>
+            <p>Carlos Menezes, cliente desde 2023</p>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Depoimento anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo depoimento</span>
+        </button>
+
+      </div>
     </section>
 
     <section id="agendamento">
       <h2>Agende seu horário</h2>
       <p>Preencha os dados abaixo e entraremos em contato para confirmar.</p>
 
-      <form action="#" method="post">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="nome" class="form-label">Nome completo</label>
+          <input type="text" class="form-control" id="nome" name="nome" autocomplete="name" required>
+        </div>
 
-        <label for="telefone">Telefone (WhatsApp)</label>
-        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" required>
+        <div class="col-md-6">
+          <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
+          <input type="tel" class="form-control" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" required>
+        </div>
 
-        <label for="servico">Serviço</label>
-        <select id="servico" name="servico" required>
-          <option value="" selected disabled>Selecione um serviço</option>
-          <option value="corte">Corte de cabelo</option>
-          <option value="barba">Barba</option>
-          <option value="navalhado">Navalhado</option>
-          <option value="combo">Corte + barba</option>
-        </select>
+        <div class="col-12">
+          <label for="servico" class="form-label">Serviço</label>
+          <select class="form-select" id="servico" name="servico" required>
+            <option value="" selected disabled>Selecione um serviço</option>
+            <option value="corte">Corte de cabelo</option>
+            <option value="barba">Barba</option>
+            <option value="navalhado">Navalhado</option>
+            <option value="combo">Corte + barba</option>
+          </select>
+        </div>
 
-        <label for="data">Data</label>
-        <input type="date" id="data" name="data" required>
+        <div class="col-md-6">
+          <label for="data" class="form-label">Data</label>
+          <input type="date" class="form-control" id="data" name="data" required>
+        </div>
 
-        <label for="hora">Horário</label>
-        <input type="time" id="hora" name="hora" min="09:00" max="20:00" required>
+        <div class="col-md-6">
+          <label for="hora" class="form-label">Horário</label>
+          <input type="time" class="form-control" id="hora" name="hora" min="09:00" max="20:00" required>
+        </div>
 
-        <label for="observacoes">Observações (opcional)</label>
-        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Ex.: prefiro o barbeiro João, corte degradê..."></textarea>
+        <div class="col-12">
+          <label for="observacoes" class="form-label">Observações (opcional)</label>
+          <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+        </div>
 
-        <button type="submit">Solicitar agendamento</button>
+        <div class="col-12">
+          <button type="submit" class="btn btn-barbearia">Solicitar agendamento</button>
+        </div>
       </form>
 
       <aside>
@@ -153,7 +230,6 @@
         <p>Prefere falar direto com a gente? Chame no <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>.</p>
       </aside>
     </section>
-
 
     <section id="contato">
       <h2>Venha nos visitar</h2>
@@ -176,12 +252,12 @@
 
   </main>
 
-
   <footer>
     <p>&copy; 2026 Barber Shop. Todos os direitos reservados.</p>
     <p>Projeto acadêmico de Programação Front-End | UNIFAN</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
