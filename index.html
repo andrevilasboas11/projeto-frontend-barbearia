@@ -16,6 +16,7 @@
   <header>
     <p>Ligue para nós: <a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
 
+    <!-- Componente Bootstrap: Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="Menu principal">
       <div class="container">
         <a class="navbar-brand" href="#home">Barber Shop</a>
@@ -37,32 +38,42 @@
       </div>
     </nav>
   </header>
-
   <main>
 
     <section id="home">
       <h1>Conheça a barbearia que cuida do seu estilo</h1>
       <p>Agende seu horário, você vai se surpreender.</p>
+      <!-- Componente Bootstrap: Button -->
       <a href="#agendamento" class="btn btn-barbearia">Agenda horário</a>
     </section>
 
     <section id="sobre">
       <h2>Tradição no corte, cuidado em cada detalhe</h2>
-      <p>
-        Somos uma barbearia que une o corte clássico às técnicas atuais. Aqui você é atendido
-        com hora marcada, sem correria e por profissionais que gostam do que fazem.
-      </p>
-      <p>
-        Da tesoura à navalha, cada serviço é feito com calma, higiene e produtos de qualidade,
-        para você sair daqui com o visual em dia e a confiança lá em cima.
-      </p>
 
-      <ul>
-        <li>Hora marcada, sem fila</li>
-        <li>Higiene rigorosa: materiais esterilizados</li>
-        <li>Produtos premium</li>
-        <li>Ambiente acolhedor</li>
-      </ul>
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <p>
+            Somos uma barbearia que une o corte clássico às técnicas atuais. Aqui você é atendido
+            com hora marcada, sem correria e por profissionais que gostam do que fazem.
+          </p>
+          <p>
+            Da tesoura à navalha, cada serviço é feito com calma, higiene e produtos de qualidade,
+            para você sair daqui com o visual em dia e a confiança lá em cima.
+          </p>
+
+          <ul>
+            <li>Hora marcada, sem fila</li>
+            <li>Higiene rigorosa: materiais esterilizados</li>
+            <li>Produtos premium</li>
+            <li>Ambiente acolhedor</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <img src="img/sobre.jpg"
+            class="img-fluid rounded" alt="Barbeiro atendendo um cliente na barbearia">
+        </div>
+      </div>
     </section>
 
     <section id="servicos">
