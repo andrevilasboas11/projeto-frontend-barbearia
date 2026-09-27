@@ -1,18 +1,20 @@
 :root {
   --cor-escura: #141a26;
-  --cor-destaque: #e07a3f;
+  --cor-destaque: #fd5b5b;
   --cor-texto: #26303d;
-  --cor-texto-suave: #5c6773;
-  --cor-fundo-alt: #f2f4f7;
+  --cor-texto-suave: #353638;
+  --cor-fundo-alt: #e1e2e4;
+  --fonte-titulos: "Didot", "Bodoni Moda", Georgia, "Times New Roman", serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Times New Roman", serif;
   color: var(--cor-texto);
 }
 
 h1, h2, h3 {
   color: var(--cor-escura);
+  font-family: var(--fonte-titulos);
 }
 
 section {
@@ -38,7 +40,9 @@ header > p a {
 }
 
 .navbar-brand {
+  font-family: var(--fonte-titulos);
   font-weight: bold;
+  font-size: 1.3rem;
   color: var(--cor-escura);
 }
 
@@ -113,9 +117,52 @@ header > p a {
   border-radius: 6px;
 }
 
-.card {
-  border: 1px solid #ddd;
+.servico-card {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border: none;
   border-top: 4px solid var(--cor-destaque);
+  background-size: cover;
+  background-position: center;
+}
+
+.servico-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(20, 26, 38, 0.72);
+}
+
+.servico-card .card-body,
+.servico-card .card-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.servico-card h3,
+.servico-card .card-text {
+  color: #fff;
+}
+
+.servico-card .fw-bold {
+  color: var(--cor-destaque);
+}
+
+.servico-card--corte {
+  background-image: url("https://images.pexels.com/photos/7697225/pexels-photo-7697225.jpeg?auto=compress&cs=tinysrgb&w=800");
+}
+
+.servico-card--barba {
+  background-image: url("https://images.pexels.com/photos/7697484/pexels-photo-7697484.jpeg?auto=compress&cs=tinysrgb&w=800");
+}
+
+.servico-card--navalhado {
+  background-image: url("https://images.pexels.com/photos/7697648/pexels-photo-7697648.jpeg?auto=compress&cs=tinysrgb&w=800");
+}
+
+.servico-card--combo {
+  background-image: url("https://images.pexels.com/photos/7697642/pexels-photo-7697642.jpeg?auto=compress&cs=tinysrgb&w=800");
 }
 
 #depoimentos {
