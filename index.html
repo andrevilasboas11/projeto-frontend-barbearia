@@ -8,7 +8,12 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/paginas.css">
 </head>
 
 <body>
@@ -26,12 +31,14 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav align-items-lg-center">
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
             <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
             <li class="nav-item"><a class="nav-link" href="#agendamento">Agenda horário</a></li>
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+
+            <li class="nav-item ms-lg-3" id="menuUsuario"></li>
           </ul>
         </div>
       </div>
@@ -43,6 +50,7 @@
     <section id="home">
       <h1>Conheça a barbearia que cuida do seu estilo</h1>
       <p>Agende seu horário, você vai se surpreender.</p>
+
       <a href="#agendamento" class="btn btn-barbearia">Agenda horário</a>
     </section>
 
@@ -267,6 +275,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 
 </html>

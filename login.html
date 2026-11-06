@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Projeto Barber</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/paginas.css">
+</head>
+
+<body>
+
+  <header>
+    <p>Ligue para nós: <a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="Menu principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Projeto Barber</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+          <ul class="navbar-nav align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#agendamento">Agenda horário</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contato">Contato</a></li>
+
+            <li class="nav-item ms-lg-3" id="menuUsuario"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="pagina">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-9 col-lg-6">
+            <div class="auth-card">
+
+              <h1 class="h3 text-center mb-1">Acesse sua conta</h1>
+              <p class="text-center mb-4">Entre ou crie uma conta para agendar seu horário.</p>
+
+              <div id="area-ja-logado" hidden>
+                <div class="alert alert-success" role="status">
+                  Você já está conectado como <strong id="nome-logado"></strong>.
+                </div>
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                  <a id="link-continuar" href="index.html" class="btn btn-barbearia">Continuar</a>
+                  <button id="btn-trocar-conta" type="button" class="btn btn-outline-barbearia">Sair desta conta</button>
+                </div>
+              </div>
+
+              <div id="area-formularios">
+                <ul class="nav nav-pills nav-fill mb-4" id="abas-auth" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aba-entrar" data-bs-toggle="pill" data-bs-target="#painel-entrar"
+                      type="button" role="tab" aria-controls="painel-entrar" aria-selected="true">Entrar</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aba-cadastro" data-bs-toggle="pill" data-bs-target="#painel-cadastro"
+                      type="button" role="tab" aria-controls="painel-cadastro" aria-selected="false">Criar conta</button>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+
+                  <div class="tab-pane fade show active" id="painel-entrar" role="tabpanel" aria-labelledby="aba-entrar">
+                    <form id="form-login" novalidate>
+                      <div id="aviso-login" class="alert" role="alert" hidden></div>
+
+                      <div class="mb-3">
+                        <label for="login-email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="login-email" autocomplete="email"
+                          aria-describedby="login-email-erro">
+                        <div class="invalid-feedback" id="login-email-erro"></div>
+                      </div>
+
+                      <div class="mb-4">
+                        <label for="login-senha" class="form-label">Senha</label>
+                        <div class="input-group">
+                          <input type="password" class="form-control" id="login-senha" autocomplete="current-password"
+                            aria-describedby="login-senha-erro">
+                          <button class="btn btn-outline-secondary" type="button" id="btn-mostrar-login">Mostrar</button>
+                        </div>
+                        <div class="invalid-feedback" id="login-senha-erro"></div>
+                      </div>
+
+                      <button type="submit" class="btn btn-barbearia w-100" id="btn-login">Entrar</button>
+                    </form>
+                  </div>
+
+                  <div class="tab-pane fade" id="painel-cadastro" role="tabpanel" aria-labelledby="aba-cadastro">
+                    <form id="form-cadastro" novalidate>
+                      <div id="aviso-cadastro" class="alert" role="alert" hidden></div>
+
+                      <div class="mb-3">
+                        <label for="cad-nome" class="form-label">Nome completo</label>
+                        <input type="text" class="form-control" id="cad-nome" autocomplete="name"
+                          aria-describedby="cad-nome-erro">
+                        <div class="invalid-feedback" id="cad-nome-erro"></div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="cad-email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="cad-email" autocomplete="email"
+                          aria-describedby="cad-email-erro">
+                        <div class="invalid-feedback" id="cad-email-erro"></div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="cad-senha" class="form-label">Senha</label>
+                        <div class="input-group">
+                          <input type="password" class="form-control" id="cad-senha" autocomplete="new-password"
+                            aria-describedby="cad-senha-erro cad-senha-forca">
+                          <button class="btn btn-outline-secondary" type="button" id="btn-mostrar-cadastro">Mostrar</button>
+                        </div>
+                        <div class="invalid-feedback" id="cad-senha-erro"></div>
+
+                        <div class="progress mt-2" role="progressbar" aria-label="Força da senha" aria-valuemin="0"
+                          aria-valuemax="100" aria-valuenow="0" id="barra-forca-trilho">
+                          <div class="progress-bar" id="barra-forca"></div>
+                        </div>
+                        <small class="text-muted" id="cad-senha-forca" aria-live="polite">Use 8+ caracteres, com maiúsculas, números e símbolos.</small>
+                      </div>
+
+                      <div class="mb-4">
+                        <label for="cad-confirmar" class="form-label">Confirmar senha</label>
+                        <input type="password" class="form-control" id="cad-confirmar" autocomplete="new-password"
+                          aria-describedby="cad-confirmar-erro">
+                        <div class="invalid-feedback" id="cad-confirmar-erro"></div>
+                      </div>
+
+                      <button type="submit" class="btn btn-barbearia w-100" id="btn-cadastro">Criar conta</button>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+
+              <p class="nota-simulacao">
+                Ambiente de simulação: o projeto é acadêmico, não tem servidor, e os dados ficam salvos apenas neste navegador.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Projeto Barber. Todos os direitos reservados.</p>
+    <p>Projeto acadêmico de Programação Front-End | UNIFAN</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+
+</html>
