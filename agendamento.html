@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agendar horário | Projeto Barber</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/paginas.css">
+</head>
+
+<body>
+
+  <header>
+    <p>Ligue para nós: <a href="tel:+5500000000000">+55 (00) 00000-0000</a></p>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="Menu principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Projeto Barber</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+          <ul class="navbar-nav align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#servicos">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="agendamento.html">Agenda horário</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contato">Contato</a></li>
+
+            <li class="nav-item ms-lg-3" id="menuUsuario"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="pagina" id="area-agendar">
+      <div class="container">
+
+        <h1 class="h2 text-center mb-1">Agende seu horário</h1>
+        <p class="text-center mb-4">Olá, <strong id="nome-cliente"></strong>! Escolha o serviço, o barbeiro, a data e o horário.</p>
+
+        <div class="row g-4">
+
+          <div class="col-lg-8">
+            <form id="form-agendamento" class="painel" novalidate>
+
+              <div id="aviso-agendamento" class="alert alert-danger" role="alert" hidden></div>
+
+              <fieldset class="mb-4">
+                <legend class="h6 mb-2">1. Serviço</legend>
+
+                <div class="opcoes-grade" id="opcoes-servico"></div>
+                <div class="invalid-feedback" id="servico-erro"></div>
+              </fieldset>
+
+              <fieldset class="mb-4">
+                <legend class="h6 mb-2">2. Barbeiro</legend>
+                <div class="opcoes-grade" id="opcoes-barbeiro"></div>
+                <div class="invalid-feedback" id="barbeiro-erro"></div>
+              </fieldset>
+
+              <div class="mb-4">
+                <label for="data" class="form-label fw-bold">3. Data</label>
+                <input type="date" class="form-control" id="data" name="data" aria-describedby="data-erro data-dica">
+                <div class="form-text" id="data-dica">Atendemos de segunda a sábado, das 09h às 19h30, de 30 em 30 minutos, com até 60 dias de antecedência.</div>
+                <div class="invalid-feedback" id="data-erro"></div>
+              </div>
+
+              <fieldset class="mb-4">
+                <legend class="h6 mb-2">4. Horário</legend>
+                <p class="dica-horarios" id="dica-horarios">Escolha o barbeiro e a data para ver os horários.</p>
+                <div class="grade-horarios" id="grade-horarios" aria-live="polite"></div>
+                <div class="invalid-feedback" id="hora-erro"></div>
+              </fieldset>
+
+              <div class="mb-4">
+                <label for="observacoes" class="form-label fw-bold">Observações (opcional)</label>
+                <textarea class="form-control" id="observacoes" name="observacoes" rows="3" maxlength="200"
+                  placeholder="Ex.: corte degradê, máquina 2 nas laterais..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-barbearia btn-lg w-100">Confirmar agendamento</button>
+            </form>
+          </div>
+
+          <aside class="col-lg-4">
+            <div class="resumo">
+              <h2 class="h5 mb-3">Resumo do pedido</h2>
+              <dl>
+                <dt>Serviço</dt>
+                <dd id="resumo-servico">—</dd>
+                <dt>Barbeiro</dt>
+                <dd id="resumo-barbeiro">—</dd>
+                <dt>Data</dt>
+                <dd id="resumo-data">—</dd>
+                <dt>Horário</dt>
+                <dd id="resumo-hora">—</dd>
+              </dl>
+              <p class="resumo__total"><span>Total</span> <strong id="resumo-total">R$ 0,00</strong></p>
+            </div>
+          </aside>
+        </div>
+
+        <h2 class="h3 mt-5 mb-3" id="meus-agendamentos">Meus agendamentos</h2>
+        <p id="sem-agendamentos" class="text-muted">Você ainda não tem agendamentos. Faça o primeiro acima!</p>
+        <div id="lista-agendamentos"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Projeto Barber. Todos os direitos reservados.</p>
+    <p>Projeto acadêmico de Programação Front-End | UNIFAN</p>
+  </footer>
+
+  <div class="modal fade" id="modalPadrao" tabindex="-1" aria-labelledby="modalPadraoTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modalPadraoTitulo"></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="modalPadraoCorpo"></div>
+        <div class="modal-footer" id="modalPadraoRodape"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/agendamento.js"></script>
+</body>
+
+</html>

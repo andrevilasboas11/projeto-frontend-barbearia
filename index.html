@@ -35,7 +35,7 @@
             <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
             <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-            <li class="nav-item"><a class="nav-link" href="#agendamento">Agenda horário</a></li>
+            <li class="nav-item"><a class="nav-link" href="agendamento.html">Agenda horário</a></li>
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
 
             <li class="nav-item ms-lg-3" id="menuUsuario"></li>
@@ -51,7 +51,7 @@
       <h1>Conheça a barbearia que cuida do seu estilo</h1>
       <p>Agende seu horário, você vai se surpreender.</p>
 
-      <a href="#agendamento" class="btn btn-barbearia">Agenda horário</a>
+      <a href="agendamento.html" class="btn btn-barbearia">Agenda horário</a>
     </section>
 
     <section id="sobre">
@@ -96,7 +96,7 @@
               <p class="fw-bold">R$ 40</p>
             </div>
             <div class="card-footer border-0 pb-3">
-              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+              <a href="agendamento.html?servico=corte" class="btn btn-outline-barbearia btn-sm">Agendar</a>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
               <p class="fw-bold">R$ 30</p>
             </div>
             <div class="card-footer border-0 pb-3">
-              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+              <a href="agendamento.html?servico=barba" class="btn btn-outline-barbearia btn-sm">Agendar</a>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
               <p class="fw-bold">R$ 35</p>
             </div>
             <div class="card-footer border-0 pb-3">
-              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+              <a href="agendamento.html?servico=navalhado" class="btn btn-outline-barbearia btn-sm">Agendar</a>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@
               <p class="fw-bold">R$ 60</p>
             </div>
             <div class="card-footer border-0 pb-3">
-              <a href="#agendamento" class="btn btn-outline-barbearia btn-sm">Agendar</a>
+              <a href="agendamento.html?servico=combo" class="btn btn-outline-barbearia btn-sm">Agendar</a>
             </div>
           </div>
         </div>
@@ -193,55 +193,17 @@
 
     <section id="agendamento">
       <h2>Agende seu horário</h2>
-      <p>Preencha os dados abaixo e entraremos em contato para confirmar.</p>
+      <p>Reserve seu horário online, sem fila e sem espera.</p>
 
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="nome" class="form-label">Nome completo</label>
-          <input type="text" class="form-control" id="nome" name="nome" autocomplete="name" required>
-        </div>
-
-        <div class="col-md-6">
-          <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
-          <input type="tel" class="form-control" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" required>
-        </div>
-
-        <div class="col-12">
-          <label for="servico" class="form-label">Serviço</label>
-          <select class="form-select" id="servico" name="servico" required>
-            <option value="" selected disabled>Selecione um serviço</option>
-            <option value="corte">Corte de cabelo</option>
-            <option value="barba">Barba</option>
-            <option value="navalhado">Navalhado</option>
-            <option value="combo">Corte + barba</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label for="data" class="form-label">Data</label>
-          <input type="date" class="form-control" id="data" name="data" required>
-        </div>
-
-        <div class="col-md-6">
-          <label for="hora" class="form-label">Horário</label>
-          <input type="time" class="form-control" id="hora" name="hora" min="09:00" max="20:00" required>
-        </div>
-
-        <div class="col-12">
-          <label for="observacoes" class="form-label">Observações (opcional)</label>
-          <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
-        </div>
-
-        <div class="col-12">
-          <button type="submit" class="btn btn-barbearia">Solicitar agendamento</button>
-        </div>
-      </form>
+      <div class="text-center mb-4">
+        <a href="agendamento.html" class="btn btn-barbearia btn-lg">Agendar agora</a>
+        <p class="mt-3 mb-0">É rápido: crie sua conta, escolha serviço, barbeiro, data e horário.</p>
+      </div>
 
       <aside>
         <h3>Horário de funcionamento</h3>
         <ul>
-          <li>Segunda a sexta: 09h às 20h</li>
-          <li>Sábado: 08h às 18h</li>
+          <li>Segunda a sábado: 09h às 19h30</li>
           <li>Domingo e feriados: fechado</li>
         </ul>
         <p>Prefere falar direto com a gente? Chame no <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>.</p>
