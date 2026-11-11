@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const { criar, doisDigitos, paraISO, dataDeISO, momento, formatarData, formatarPreco, valorSelecionado, mostrarErro, descreverPagamento } = Util;
+
   const SERVICOS = {
     corte: { nome: 'Corte de cabelo', preco: 40 },
     barba: { nome: 'Barba', preco: 30 },
@@ -11,7 +13,6 @@
   const BARBEIROS = ['João', 'Lucas', 'Igor'];
 
   const DIAS_MAXIMOS = 60;
-  const DIAS_SEMANA = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
   const INTERVALO_MINUTOS = 30;
   const PRIMEIRA_VAGA = 9 * 60;
@@ -40,63 +41,12 @@
 
   document.getElementById('nome-cliente').textContent = usuario.nome.split(' ')[0];
 
-  function criar(tag, classe, texto) {
-    const elemento = document.createElement(tag);
-    if (classe) elemento.className = classe;
-    if (texto !== undefined) elemento.textContent = texto;
-    return elemento;
-  }
-
-  function doisDigitos(numero) {
-    return String(numero).padStart(2, '0');
-  }
-
-  function paraISO(data) {
-    return data.getFullYear() + '-' + doisDigitos(data.getMonth() + 1) + '-' + doisDigitos(data.getDate());
-  }
-
-  function dataDeISO(iso) {
-    const partes = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-    if (!partes) return null;
-    const ano = Number(partes[1]);
-    const mes = Number(partes[2]);
-    const dia = Number(partes[3]);
-    const data = new Date(ano, mes - 1, dia);
-    const existe = data.getFullYear() === ano && data.getMonth() === mes - 1 && data.getDate() === dia;
-    return existe ? data : null;
-  }
-
-  function formatarData(iso) {
-    const data = dataDeISO(iso);
-    if (!data) return '—';
-    return DIAS_SEMANA[data.getDay()] + ', ' + doisDigitos(data.getDate()) + '/' + doisDigitos(data.getMonth() + 1) + '/' + data.getFullYear();
-  }
-
-  function formatarPreco(valor) {
-    return 'R$ ' + valor.toFixed(2).replace('.', ',');
-  }
-
   function inicioDoDia(data) {
     return new Date(data.getFullYear(), data.getMonth(), data.getDate());
   }
 
   function gerarId() {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-  }
-
-  function valorSelecionado(nome) {
-    const opcoes = document.getElementsByName(nome);
-    for (let i = 0; i < opcoes.length; i++) {
-      if (opcoes[i].checked) return opcoes[i].value;
-    }
-    return '';
-  }
-
-  function mostrarErro(idDoErro, mensagem) {
-    const caixa = document.getElementById(idDoErro);
-    caixa.textContent = mensagem;
-    caixa.classList.toggle('d-block', Boolean(mensagem));
-    return !mensagem;
   }
 
   const IDS_DOS_ERROS = ['servico-erro', 'barbeiro-erro', 'data-erro', 'hora-erro'];
@@ -235,10 +185,7 @@
       return 'Você já tem um agendamento neste horário.';
     }
 
-    const quando = dataDeISO(dataISO);
-    const partes = hora.split(':');
-    quando.setHours(Number(partes[0]), Number(partes[1]), 0, 0);
-    if (quando <= new Date()) return 'Esse horário já passou.';
+    if (momento(dataISO, hora) <= new Date()) return 'Esse horário já passou.';
 
     return '';
   }
@@ -389,31 +336,34 @@
       detalhes.append(item);
     });
     corpo.append(detalhes);
-    corpo.append(criar('p', 'mb-0 text-muted', 'Você pode acompanhar ou cancelar em "Meus agendamentos".'));
+    corpo.append(criar('p', 'mb-0 text-muted', 'Você pode pagar agora ou depois, em "Meus agendamentos".'));
 
     mostrarModal('Agendamento confirmado!', corpo, [
       {
-        texto: 'Ver meus agendamentos',
+        texto: 'Pagar agora',
         classe: 'btn-barbearia',
+        aoClicar: function () {
+          window.location.href = 'pagamento.html?id=' + novo.id;
+        },
+      },
+      {
+        texto: 'Pagar depois',
+        classe: 'btn-outline-secondary',
         aoClicar: function () {
           document.getElementById('meus-agendamentos').scrollIntoView({ behavior: 'smooth' });
         },
       },
-      { texto: 'Fechar', classe: 'btn-outline-secondary' },
     ]);
   });
 
   function momentoDoAgendamento(agendamento) {
-    const data = dataDeISO(agendamento.data);
-    const partes = agendamento.hora.split(':');
-    data.setHours(Number(partes[0]), Number(partes[1]), 0, 0);
-    return data;
+    return momento(agendamento.data, agendamento.hora);
   }
 
   function situacao(agendamento) {
     let estado = agendamento.status;
 
-    if (estado === 'agendado' && momentoDoAgendamento(agendamento) < new Date()) {
+    if ((estado === 'agendado' || estado === 'pago') && momentoDoAgendamento(agendamento) < new Date()) {
       estado = 'realizado';
     }
 
@@ -422,16 +372,22 @@
         return { texto: 'Cancelado', classe: 'text-bg-secondary', ativo: false };
       case 'realizado':
         return { texto: 'Realizado', classe: 'text-bg-dark', ativo: false };
+      case 'pago':
+        return { texto: 'Pago', classe: 'text-bg-success', ativo: true };
       case 'agendado':
-        return { texto: 'Agendado', classe: 'text-bg-success', ativo: true };
+        return { texto: 'Agendado', classe: 'text-bg-warning', ativo: true };
       default:
         return { texto: 'Indefinido', classe: 'text-bg-light', ativo: false };
     }
   }
 
   function pedirCancelamento(agendamento) {
-    const corpo = criar('p', 'mb-0', 'Cancelar o agendamento de ' + agendamento.servicoNome + ' em ' +
-      formatarData(agendamento.data) + ' às ' + agendamento.hora + '?');
+    let texto = 'Cancelar o agendamento de ' + agendamento.servicoNome + ' em ' +
+      formatarData(agendamento.data) + ' às ' + agendamento.hora + '?';
+    if (agendamento.status === 'pago') {
+      texto += ' O valor pago será estornado (simulação).';
+    }
+    const corpo = criar('p', 'mb-0', texto);
 
     mostrarModal('Cancelar agendamento', corpo, [
       { texto: 'Voltar', classe: 'btn-outline-secondary' },
@@ -442,6 +398,9 @@
           const todos = Dados.agendamentos.listar();
           const alvo = todos.find(function (a) { return a.id === agendamento.id; });
           if (alvo) {
+            if (alvo.status === 'pago' && alvo.pagamento) {
+              alvo.pagamento.estornado = true;
+            }
             alvo.status = 'cancelado';
             Dados.agendamentos.salvar(todos);
           }
@@ -465,10 +424,20 @@
     if (agendamento.observacoes) {
       info.append(criar('p', 'text-muted', 'Obs.: ' + agendamento.observacoes));
     }
+    if (agendamento.pagamento) {
+      const formaDePagamento = descreverPagamento(agendamento.pagamento);
+      const estornado = agendamento.pagamento.estornado ? ' (estornado)' : '';
+      info.append(criar('p', 'text-muted', 'Pagamento: ' + formaDePagamento + estornado));
+    }
 
     const acoes = criar('div', 'item-agendamento__acoes');
     acoes.append(criar('strong', 'item-agendamento__valor', formatarPreco(agendamento.valor)));
     if (estado.ativo) {
+      const linkPagamento = criar('a', null, agendamento.status === 'pago' ? 'Comprovante' : 'Pagar');
+      linkPagamento.className = agendamento.status === 'pago' ? 'btn btn-outline-secondary btn-sm' : 'btn btn-barbearia btn-sm';
+      linkPagamento.href = 'pagamento.html?id=' + encodeURIComponent(agendamento.id);
+      acoes.append(linkPagamento);
+
       const botaoCancelar = criar('button', 'btn btn-outline-danger btn-sm', 'Cancelar');
       botaoCancelar.type = 'button';
       botaoCancelar.addEventListener('click', function () {
