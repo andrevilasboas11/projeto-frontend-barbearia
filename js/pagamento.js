@@ -240,12 +240,11 @@
   const campoValidade = document.getElementById('cartao-validade');
   const campoCvv = document.getElementById('cartao-cvv');
   const campoParcelas = document.getElementById('cartao-parcelas');
-  const DICA_CARTAO = 'Teste: 4242 4242 4242 4242 (aprova) ou 4000 0000 0000 0002 (recusa).';
 
   campoNumero.addEventListener('input', function () {
     const digitos = campoNumero.value.replace(/\D/g, '').slice(0, 16);
     campoNumero.value = digitos.replace(/(.{4})/g, '$1 ').trim();
-    document.getElementById('cartao-bandeira').textContent = digitos ? 'Bandeira: ' + bandeiraDoCartao(digitos) : DICA_CARTAO;
+    document.getElementById('cartao-bandeira').textContent = digitos ? 'Bandeira: ' + bandeiraDoCartao(digitos) : '';
     erroNoCampo(campoNumero, '');
   });
 
